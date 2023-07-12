@@ -255,10 +255,10 @@ public class SwiftSimpleBgLocationPlugin: NSObject, FlutterPlugin {
             switch locationResult {
                 case .success(let location):
                     print("New Location: \(location)")
-                    positionStream?.eventSink!(Position.fromLocation(location)?.toMap())
+                    positionStream?.eventSink?(Position.fromLocation(location)?.toMap())
                 case .failure(let error):
                     print("An Error on Listen Position: \(error)")
-                    positionStream?.eventSink!(FlutterError(
+                    positionStream?.eventSink?(FlutterError(
                         code: ErrorCodes.errorWhileAcquiringPosition.code,
                         message: ErrorCodes.errorWhileAcquiringPosition.description,
                         details: error.localizedDescription
